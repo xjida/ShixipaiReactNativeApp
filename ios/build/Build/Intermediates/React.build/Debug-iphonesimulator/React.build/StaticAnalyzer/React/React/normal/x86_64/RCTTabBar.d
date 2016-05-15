@@ -1,0 +1,22 @@
+dependencies: \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Views/RCTTabBar.m \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Views/RCTTabBar.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTJavaScriptExecutor.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Views/RCTTabBarItem.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Views/RCTComponent.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Views/RCTView.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Views/RCTViewControllerProtocol.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Views/RCTWrapperViewController.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Views/UIView+React.h

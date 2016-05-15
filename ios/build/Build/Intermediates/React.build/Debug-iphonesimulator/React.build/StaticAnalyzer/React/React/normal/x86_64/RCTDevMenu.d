@@ -1,0 +1,21 @@
+dependencies: \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Modules/RCTDevMenu.m \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Modules/RCTDevMenu.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTJavaScriptExecutor.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTKeyCommands.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTRootView.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Modules/RCTSourceCode.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTWebSocketProxy.h \
+  /Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/node_modules/react-native/React/Base/RCTWebSocketProxyDelegate.h

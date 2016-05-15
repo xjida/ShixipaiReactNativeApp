@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="845a5b3a624946b2068963ba656c117fc453701c">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/classes-30fc43fce351e2fdf43a451d0f092bc7aa312015.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.25.1/jars/libs/infer-annotations-1.5.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="12b559f4bf81fa45adf2235efa0c2fbd9d933f1e">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/infer-annotations-1.5-a9642e16ee208260d7e4527ff4b72e2cd8c605a8.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0-821edee05150968ec5f5d598f9354d73f3e1dfb5.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-a5aea58a3160298e1efb37a3fdc218f6144e9ba4.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/classes-2bcf74dd57b1228d48631a0bc1c5a2005f90841f.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/classes-099707ea459f619cff17d1212a7284b617b827d4.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/classes-ccfaf0f0e64ed8eceda424cf88b04f5a75a1831d.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.25.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5453085bfeee55acfa0235a5dc1477e9126013db">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/classes-0dd9e9b2afff628a69ad41ae845c5c97ec46e02d.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/library-2.4.0-209636f96665db5261d6039e66d73c543cca5f21.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.3/1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14/jackson-core-2.2.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.3-d1077a2761b50c99a19553c51cd4c03955d2c2f2.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.5.0/4de2b4ed3445c37ec1720a7d214712e845a24636/okhttp-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/okhttp-2.5.0-3d397042d04dfe9bbc3f639df964c55c4d973472.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-a7503514e1bfac15b82267b10c9582b5322c6f0c.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/okio-1.6.0-352fbf11182fc7804628465871eda50adc0d7ee3.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0d5d69b03cb7d68b81543f6483ed04ccb0e2235b">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/classes-b265412da79df543303ac215d73a5526b371c799.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4af24c040b21980e0a80a505816c648e36705bd9">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/classes-fbc4144ca390e74d393d88d216e7ec5d5fadceac.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-ws/2.5.0/e9753b7dcae5deca92e871c5c759067070b07bc/okhttp-ws-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0e9753b7dcae5deca92e871c5c759067070b07bc">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-2.5.0-aa9b974e73c22e91ffb3d8423cec78fa27066086.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-6cc7090390981f9366b68a537571f007686f2551.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3836ecca4e31e18ea8fbae8e822d49777b0db4f7">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/classes-9c279c23a2701469a413f3c7af2be2ef88aa63e4.jar" />
+    </item>
+    <item
+        jar="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="9178570a3a28c95fabd3bc746cd68efe99ad2b47">
+        <dex dex="/Users/chenhaoact/project/mobile/ReactNative/ShixipaiReactNativeApp/android/app/build/intermediates/pre-dexed/debug/classes-80b0b382e085784df9b8b2d21d7345831eb131cc.jar" />
+    </item>
+
+</items>
