@@ -10,16 +10,18 @@ import {
     NavigatorIOS,
 } from 'react-native';
 
-var InternList = require('./InternList')  //引入InternList.js里自定义的实习列表组件
+var InternList = require('./InternList');  //引入InternList.js里自定义的实习列表组件
+var LoginRegister = require('./LoginRegister'); //引入InternList.js里自定义的实习列表组件
 class ShixipaiReactNativeApp extends Component {
     render() {
         //IOS应用提供返回主界面的导航栏,android则不一样
         return (
+        //<LoginRegister/>
             <NavigatorIOS
                 style={styles.container}
                 initialRoute={{  //这块用initialRoute复用了自定义的组件
                    title:'实习派',
-                   component:InternList,
+                   component:Login,
                 }}
             />
         );
