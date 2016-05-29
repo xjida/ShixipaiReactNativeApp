@@ -21,7 +21,7 @@ class ShixipaiReactNativeApp extends Component {
                 style={styles.container}
                 initialRoute={{  //这块用initialRoute复用了自定义的组件
                    title:'实习派',
-                   component:Login,
+                   component:LoginRegister,
                 }}
             />
         );
