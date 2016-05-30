@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 var InternList = require('./InternList');  //引入InternList.js里自定义的实习列表组件
-var LoginRegister = require('./LoginRegister'); //引入InternList.js里自定义的实习列表组件
+var LoginRegister = require('./LoginRegister'); //LoginRegister.js里自定义的实习列表组件
 class ShixipaiReactNativeApp extends Component {
     render() {
         //IOS应用提供返回主界面的导航栏,android则不一样
@@ -19,9 +19,13 @@ class ShixipaiReactNativeApp extends Component {
         //<LoginRegister/>
             <NavigatorIOS
                 style={styles.container}
-                initialRoute={{  //这块用initialRoute复用了自定义的组件
-                   title:'实习派',
-                   component:Login,
+                navigationBarHidden={true}
+                // login page don't need the navBar
+                initialRoute={{
+                  //这块用initialRoute复用了自定义的组件
+                  //login page don't need title
+                   title:'',
+                   component:LoginRegister,
                 }}
             />
         );
@@ -31,8 +35,10 @@ class ShixipaiReactNativeApp extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
+        //barTintColor:'transparent',
     },
+
 });
 
 //注册一个APP,里边的内容是一个组件

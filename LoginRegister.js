@@ -49,7 +49,7 @@ regiterForm()
 
 */
 
-
+var MainNav = require('./MainNav');
 var REQUEST_URL_LOG = 'http://182.92.11.218/shixipaiAPI/ioha-k-u-wao/login';
 var REQUEST_URL_REGISTER = 'http://182.92.11.218/shixipaiAPI/iohaha-i-u-aha/register';
 class LoginRegister extends Component {
@@ -325,14 +325,15 @@ class LoginRegister extends Component {
           );
           break;
         case 'login success':
-          Alert.alert(
-              '登录成功',
-              null,
-              [
-                {text: 'OK', onPress: () =>{}
-                },
-              ]
-          );
+          this.props.navigator.replace({
+            title: 'View',
+            //jump to the next page -- main pages
+            // this main page is a navigator
+            component: MainNav,
+            //if needed,passProps be passed to component
+            passProps: { myProp: 'Axiba001' },
+
+          });
           break;
         case 'register success':
           Alert.alert(
