@@ -10,8 +10,13 @@ import {
     Text,
     View,
     Image,
-    ListView  //列表控件,React的ListView会安排视图的渲染，只显示当前在屏幕上的那些元素。已经渲染好了但移动到屏幕之外的元素，会从原生视图结构中移除（很好的提高了性能）
+    NavigatorIOS,
+    ListView,  //列表控件,React的ListView会安排视图的渲染，只显示当前在屏幕上的那些元素。已经渲染好了但移动到屏幕之外的元素，会从原生视图结构中移除（很好的提高了性能）
+    TouchableHighlight, //用Touchable类组件才可以让Text之外的组件有点击效果和事件
+    TouchableOpacity,
 } from 'react-native';
+
+var InternDetail = require('./InternDetail')
 
 //页面数据
 //实习信息数据接口
@@ -123,7 +128,7 @@ class InternList extends Component {
         return (
             <ListView dataSource={this.state.dataSource} /*dataSource接口用来在ListView的整个更新过程中判断哪些数据行发生了变化*/
                       renderRow={this.renderIntern} /*rederRow属性指定ListView每一条用什么方法渲染*/
-                      style={styles.listView} />
+                      style={styles.listView}/>
 
         );
     }
@@ -139,43 +144,55 @@ class InternList extends Component {
         );
     }
 
+    //点击某一条实习信息跳转到该职位详细页
+    goTo(e) {
+        this.props.navigator.push({
+            component: InternDetail,
+            title: '实习信息',
+            rightButtonTitle: '购物车',
+            onRightButtonPress: function () {
+                alert('进入我的购物车');
+            }
+        });
+        alert('点击某项实习')
+        console.log('点击某项实习')
+    }
+
+
     //加载一条实习信息的视图组件
     renderIntern(intern) {
         return (
             <View style={styles.container}>
-                <Image
-                    source={{uri: intern.company_image}}
-                    style={styles.img}
-                />
-                <Text style={styles.title}>
-                    职位标题
-                </Text>
-                <Text style={styles.area}>
-                    地区
-                </Text>
-                <Text style={styles.company}>
-                    公司
-                </Text>
+                <TouchableHighlight
+                    //onPress={
+                    //function() {
+                    // alert('点击触发')
+                    //}
+                    //(this.goTo)  此处无法触发goTo(),也无法实现跳转事件??????????????
+                    //}
+                    //onPress={e=>this.goTo(e)}
+                    //???点击某一项还是有问题,报_this3.goTo is not a function???
+                    onPress={e=>this.goTo(e)}
+                >
+                    <View style={styles.container}>
+                        <Image
+                            source={{uri: intern.company_image}}
+                            style={styles.img}
+                        />
+                        <Text style={styles.title}>
+                            职位标题
+                        </Text>
+                        <Text style={styles.area}>
+                            地区
+                        </Text>
+                        <Text style={styles.company}>
+                            公司
+                        </Text>
+                    </View>
+                </TouchableHighlight>
             </View>
         );
     }
-
-    ////实习ListView的一条内容的控件,通过ListView里的rederRow={this.item}加载
-    //item() {
-    //    return (
-    //        <View style={styles.container}>
-    //            <Image source={{uri:InternData.company_image}} style={styles.img} /*注意是文件引用方式uri: */ />
-    //            <Text style={styles.title}>
-    //                职位标题
-    //            </Text>
-    //            <Text style={styles.area}>
-    //                地区
-    //            </Text>
-    //            <Text style={styles.company}>
-    //                公司
-    //            </Text>
-    //        </View>)
-    //}
 
 }
 
@@ -210,8 +227,8 @@ const styles = StyleSheet.create({
         margin: 10
     },
     listView: {
-        paddingTop:20,
-        backgroundColor:'#F5FCFF',
+        paddingTop: 20,
+        backgroundColor: '#F5FCFF',
     }
 });
 
