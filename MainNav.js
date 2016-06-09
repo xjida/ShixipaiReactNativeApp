@@ -16,7 +16,9 @@ import {
 var Dimensions = require('Dimensions');
 //NonePage can be changed to the real pages
 var NonePage = require('./NonePage');
-var InternList = require('./InternList')
+var FirstPage = require('./FirstPage')
+var JobPage = require('./JobPage')
+var ResumePage = require('./ResumePage')
 
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height - 70;
@@ -31,7 +33,7 @@ class MainNav extends Component {
     //    return ({tab: 'message'})
     //}
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             tab: 'message'
@@ -53,11 +55,10 @@ class MainNav extends Component {
                     onPress={this.select.bind(this, 'home')}
                     selected={this.state.tab === 'home'}
                 >
-                    <ScrollView
-                    //??为什么下面掉组件,第一次进来加载不了,切换之后才能加载???
+                    <FirstPage
+                        //??为什么下面掉组件,第一次进来加载不了,切换之后才能加载???
                     >
-                        <InternList/>
-                    </ScrollView>
+                    </FirstPage>
                 </TabBarIOS.Item>
 
                 <TabBarIOS.Item
@@ -67,24 +68,7 @@ class MainNav extends Component {
                     selected={this.state.tab === 'position'}
                     //selected={'message' === 'message'}
                 >
-                    <ScrollView>
-                        <Text style={styles.list}>
-                            <Text>唐三藏</Text>
-                            <Text>131-8904-9077</Text>
-                        </Text>
-                        <Text style={styles.list}>
-                            <Text>孙悟空</Text>
-                            <Text>131-8904-9078</Text>
-                        </Text>
-                        <Text style={styles.list}>
-                            <Text>猪八戒</Text>
-                            <Text>131-8904-9079</Text>
-                        </Text>
-                        <Text style={styles.list}>
-                            <Text>沙和尚</Text>
-                            <Text>131-8904-9080</Text>
-                        </Text>
-                    </ScrollView>
+                    <JobPage></JobPage>
                 </TabBarIOS.Item>
 
                 <TabBarIOS.Item
@@ -94,10 +78,7 @@ class MainNav extends Component {
                     selected={this.state.tab === 'resume'}
                     //selected={'message' === 'message'}
                 >
-                    <ScrollView style={styles.flex}>
-                        <Image style={{width:width, height:height}}
-                               source={{uri:'http://vczero.github.io/ctrip/star_page.jpg'}}/>
-                    </ScrollView>
+                    <ResumePage></ResumePage>
                 </TabBarIOS.Item>
             </TabBarIOS>
         );
