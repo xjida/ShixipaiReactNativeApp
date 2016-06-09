@@ -180,13 +180,13 @@ class InternList extends Component {
                             style={styles.img}
                         />
                         <Text style={styles.title}>
-                            职位标题
+                            {intern.title}
                         </Text>
                         <Text style={styles.area}>
-                            地区
+                            {intern.area}
                         </Text>
                         <Text style={styles.company}>
-                            公司
+                            {intern.company}
                         </Text>
                     </View>
                 </TouchableHighlight>
