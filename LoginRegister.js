@@ -331,7 +331,8 @@ class LoginRegister extends Component {
             // this main page is a navigator
             component: MainNav,
             //if needed,passProps be passed to component
-            passProps: { myProp: 'Axiba001' },
+            passProps: { username: this.state.username,
+                         password:this.state.password},
 
           });
           break;
