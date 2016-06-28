@@ -326,12 +326,12 @@ class LoginRegister extends Component {
           break;
         case 'login success':
           this.props.navigator.replace({
-            title: 'View',
+            name: 'View',
             //jump to the next page -- main pages
             // this main page is a navigator
             component: MainNav,
             //if needed,passProps be passed to component
-            passProps: { username: this.state.username,
+            params: { username: this.state.username,
                          password:this.state.password},
 
           });

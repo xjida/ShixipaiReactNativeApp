@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import {
     AppRegistry,
     StyleSheet,
-    NavigatorIOS,
+    Navigator,
 } from 'react-native';
 
 var InternList = require('./InternList');  //引入InternList.js里自定义的实习列表组件
@@ -19,21 +19,20 @@ class ShixipaiReactNativeApp extends Component {
         //IOS应用提供返回主界面的导航栏,android则不一样
         return (
         //<LoginRegister/>
-            <NavigatorIOS
-                style={styles.container}
-                navigationBarHidden={true}
-                // login page don't need the navBar
-
-                initialRoute={{
-                  //这块用initialRoute复用了自定义的组件
-                  //login page don't need title
-                   title:'',
-                   //component:LoginRegister,
-                   component:MainNav,
-
-
-                }}
-            />
+           //using Navigator
+            <Navigator
+              initialRoute={{ name: '', component: LoginRegister }}
+              configureScene={() => {
+                return Navigator.SceneConfigs.VerticalDownSwipeJump;
+              }}
+              renderScene={(route, navigator) => {
+                let Component = route.component;
+                if(route.component) {
+                  //using params to pass props.
+                  return <Component {...route.params} navigator={navigator} />
+                }
+              }}
+           />
         );
     }
 }

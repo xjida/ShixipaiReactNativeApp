@@ -31,7 +31,7 @@ class ModalPicker extends Component {
       this.props.selectedValueFunc(values);
   }
   render(){
-    console.log("vis",this.state.vis);
+    //console.log("vis",this.state.vis);
     var vis=this.props.modalVisible;
 
     return(
@@ -112,6 +112,7 @@ class BaseInformation extends Component {
           <Image style={styles.navSmallCircle} source={require('../img/resume/smallCircle.png')}/>
           <Image style={styles.navSmallCircle} source={require('../img/resume/smallCircle.png')}/>
           <Image style={styles.navBigCircle} source={require('../img/resume/bigCircle.png')}/>
+
 
         </View>
 
@@ -265,14 +266,22 @@ class BaseInformation extends Component {
   }
 
   nextPage(){
+    // name:'',
+    // sex:'男',
+    // birthday: new Date(),
+    // phone:'',
+    // mail:'',
     this.props.navigator.replace({
-      title: 'View',
+      title: '填写资料',
       //jump to the next page -- main pages
       // this main page is a navigator
       component: Education,
+      //leftButtonTitle: '简历',
+      onLeftButtonPress: () => this.props.navigator.pop(),
       //if needed,passProps be passed to component
       passProps: { username: this.props.username,
-                   password:this.props.password},
+                   password:this.props.password,
+                  baseInformation:[this.state.name,this.state.sex,this.state.birthday.toLocaleDateString(),this.state.phone,this.state.mail]},
 
     });
 
@@ -323,7 +332,7 @@ const styles = StyleSheet.create({
       nav:{
         // marginTop:30,
         // marginBottom:60,
-        flex: 1.5,
+        flex: 1,
         justifyContent:'center',
         flexDirection:'row',
       //  backgroundColor:'red',

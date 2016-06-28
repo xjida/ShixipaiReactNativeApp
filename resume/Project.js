@@ -15,17 +15,19 @@ DatePickerIOS,
     TouchableHighlight,
     ListView  //列表控件,React的ListView会安排视图的渲染，只显示当前在屏幕上的那些元素。已经渲染好了但移动到屏幕之外的元素，会从原生视图结构中移除（很好的提高了性能）
 } from 'react-native';
+var Award=require('./Award');
 
-var Project = require('./Project');
-class EduCont extends Component {
+
+class ProjCont extends Component {
   constructor(props) {
     super(props);
     this.state = {
       order:this.props.order,
-      school:'',
-      professional:'',
-      graduated_time: this.props.dates,
-      grade:'',
+      pname:'',
+      description:'',
+      start_time: this.props.stDate,
+      end_time:this.props.endDates,
+      job:'',
       // username:this.props.username,
       // password:this.props.password,
       //graduated_timeModalVisible:false,
@@ -33,33 +35,35 @@ class EduCont extends Component {
 
     };
   }
-  setGraduated_timeModalVisible(visible){
-    this.props.vis(visible,this.state.order);
-
+  setStartModalVisible(visible){
+    this.props.vis(visible,this.state.order,'start');
   }
-  onSchoolTextChanged(event){
-    this.setState({ school: event.nativeEvent.text });
-    this.props.school(this.state.order,event.nativeEvent.text);
+  setEndModalVisible(visible){
+    this.props.vis(visible,this.state.order,'end');
   }
-  onGradeTextChanged(event){
-    this.setState({ grade: event.nativeEvent.text });
-    this.props.grade(this.state.order,event.nativeEvent.text);
+  onPnameTextChanged(event){
+    this.setState({ pname: event.nativeEvent.text });
+    this.props.pname(this.state.order,event.nativeEvent.text);
   }
-  onProfessionalTextChanged(event){
-    this.setState({ professional: event.nativeEvent.text });
-    this.props.professional(this.state.order,event.nativeEvent.text);
+  onDescriptionTextChanged(event){
+    this.setState({ description: event.nativeEvent.text });
+    this.props.description(this.state.order,event.nativeEvent.text);
+  }
+  onJobTextChanged(event){
+    this.setState({ job: event.nativeEvent.text });
+    this.props.job(this.state.order,event.nativeEvent.text);
   }
   render(){
     return (
       <View style={styles.context}>
-        <Text style={{fontSize:20,fontWeight: 'bold',}}>教育经历{this.state.order}</Text>
+        <Text style={{fontSize:20,fontWeight: 'bold',}}>项目经历{this.state.order}</Text>
         <View style={styles.resumeRow}>
           <Image style={styles.starImg} source={require('../img/resume/star.png')}/>
-          <Text style={styles.titles}>毕业时间</Text>
+          <Text style={styles.titles}>开始时间</Text>
           <TouchableHighlight  style={styles.infoSelect}
             underlayColor='transparent'
-            onPress={this.setGraduated_timeModalVisible.bind(this,true)}>
-            <Text style={styles.valueSelect}> {this.props.dates.toLocaleDateString()} </Text>
+            onPress={this.setStartModalVisible.bind(this,true)}>
+            <Text style={styles.valueSelect}> {this.props.stDate.toLocaleDateString()} </Text>
           </TouchableHighlight>
           <Image style={styles.nextImg} source={require('../img/resume/next.png')}/>
         </View>
@@ -67,28 +71,40 @@ class EduCont extends Component {
 
         <View style={styles.resumeRow}>
           <Image style={styles.starImg} source={require('../img/resume/star.png')}/>
-          <Text style={styles.titles}>学  校</Text>
-          <TextInput style={styles.inputInfo}
-            value={this.state.school}
-            onChange={this.onSchoolTextChanged.bind(this)}/>
+          <Text style={styles.titles}>结束时间</Text>
+          <TouchableHighlight  style={styles.infoSelect}
+            underlayColor='transparent'
+            onPress={this.setEndModalVisible.bind(this,true)}>
+            <Text style={styles.valueSelect}> {this.props.endDate.toLocaleDateString()} </Text>
+          </TouchableHighlight>
+          <Image style={styles.nextImg} source={require('../img/resume/next.png')}/>
         </View>
         <View style={styles.gap}/>
 
         <View style={styles.resumeRow}>
           <Image style={styles.starImg} source={require('../img/resume/star.png')}/>
-          <Text style={styles.titles}>学  历</Text>
+          <Text style={styles.titles}>名  称</Text>
           <TextInput style={styles.inputInfo}
-            value={this.state.grade}
-            onChange={this.onGradeTextChanged.bind(this)}/>
+            value={this.state.pname}
+            onChange={this.onPnameTextChanged.bind(this)}/>
         </View>
         <View style={styles.gap}/>
 
         <View style={styles.resumeRow}>
           <Image style={styles.starImg} source={require('../img/resume/star.png')}/>
-          <Text style={styles.titles}>专  业</Text>
+          <Text style={styles.titles}>职  务</Text>
           <TextInput style={styles.inputInfo}
-            value={this.state.professional}
-            onChange={this.onProfessionalTextChanged.bind(this)}/>
+            value={this.state.job}
+            onChange={this.onJobTextChanged.bind(this)}/>
+        </View>
+        <View style={styles.gap}/>
+
+        <View style={styles.resumeRow}>
+          <Image style={styles.starImg} source={require('../img/resume/star.png')}/>
+          <Text style={styles.titles}>描  述</Text>
+          <TextInput style={styles.inputInfo}
+            value={this.state.description}
+            onChange={this.onDescriptionTextChanged.bind(this)}/>
         </View>
         <View style={styles.gap}/>
 
@@ -100,38 +116,38 @@ class EduCont extends Component {
 
 }
 
-class Education extends Component {
+class Project extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      // name:'',
-      // sex:'男',
-      school:['','','',''],
-      professional:['','','',''],
-      grade:['','','',''],
-      date: [0,new Date(),new Date(),new Date()],
-
-
+      pname:['','','',''],
+      description:['','','',''],
+      startDate: [0,new Date(),new Date(),new Date()],
+      endDate: [0,new Date(),new Date(),new Date()],
+      job:['','','',''],
       ModalVisible:false,
 
-      addEdu:[1],
+      addProj:[1],
       selectedOrder:1,
-      //timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
+      selectedModal:'start',
 
       //css
-      contHeight:650,
+      contHeight:700,
     };
   }
 
 
   render(){
-    var array=this.state.addEdu;
+    var array=this.state.addProj;
     var visFunc=this.setModalVisible;
-    var sendDate=this.state.date;
-    var schoolFunc=this.onSchoolTextChanged;
-    var gradeFunc=this.onGradeTextChanged;
-    var professionalFunc=this.onProfessionalTextChanged;
+    var sendStDate=this.state.startDate;
+    var sendEndDate=this.state.endDate;
+    var pnameFunc=this.onPnameTextChanged;
+    var jobFunc=this.onJobTextChanged;
+    var descriptionFunc=this.onDescriptionTextChanged;
+    var datePicker=this.state.selectedModal=='start'?this.state.startDate:this.state.endDate;
+  //  var professionalFunc=this.onProfessionalTextChanged;
 
     //console.log(sendDate[1]);
     return(
@@ -143,14 +159,15 @@ class Education extends Component {
           <Image style={styles.navSmallCircle} source={require('../img/resume/smallCircleColor.png')}/>
           <Image style={styles.navSmallCircle} source={require('../img/resume/smallCircleColor.png')}/>
 
+          <Image style={styles.navBigCircle} source={require('../img/resume/bigCircleColor.png')}/>
+          <Image style={styles.navSmallCircle} source={require('../img/resume/smallCircleColor.png')}/>
+          <Image style={styles.navSmallCircle} source={require('../img/resume/smallCircleColor.png')}/>
+
           <TouchableHighlight  style={styles.navSelected}
             underlayColor='#1aa1e5'>
-            <Text style={styles.navSelectedText}>  教育背景  </Text>
+            <Text style={styles.navSelectedText}>  项目经历  </Text>
           </TouchableHighlight>
 
-          <Image style={styles.navSmallCircle} source={require('../img/resume/smallCircle.png')}/>
-          <Image style={styles.navSmallCircle} source={require('../img/resume/smallCircle.png')}/>
-          <Image style={styles.navBigCircle} source={require('../img/resume/bigCircle.png')}/>
 
           <Image style={styles.navSmallCircle} source={require('../img/resume/smallCircle.png')}/>
           <Image style={styles.navSmallCircle} source={require('../img/resume/smallCircle.png')}/>
@@ -165,14 +182,15 @@ class Education extends Component {
 
           {array.map(function(num){
           //  console.log(this.state.date);
-            return <EduCont order={num} vis={visFunc} dates={sendDate[num]} school={schoolFunc} grade={gradeFunc} professional={professionalFunc}/>;
+            return <ProjCont order={num} vis={visFunc} stDate={sendStDate[num]} endDate={sendEndDate[num]}
+            pname={pnameFunc} description={descriptionFunc} job={jobFunc} />;
           })}
 
         <View style={styles.buttonContainer}>
           <TouchableHighlight style={[styles.submitButton,{backgroundColor:'#f6b55b',borderColor: '#f6b55b'}]}
-            onPress={this.addEducationFunc.bind(this)}
+            onPress={this.addProjectFunc.bind(this)}
             underlayColor='transparent'>
-          <Text style={styles.submitButtonText}>添加教育经历</Text>
+          <Text style={styles.submitButtonText}>添加项目经历</Text>
           </TouchableHighlight>
 
           <TouchableHighlight style={styles.submitButton}
@@ -193,7 +211,7 @@ class Education extends Component {
           <View style={styles.modalContainer}>
             <View style={styles.modalinnerContainer}>
               <DatePickerIOS
-                 date={this.state.date[this.state.selectedOrder]}
+                 date={datePicker[this.state.selectedOrder]}
                  mode="date"
                  timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
                  onDateChange={(date)=>this.onDateChange(date)}
@@ -216,17 +234,17 @@ class Education extends Component {
 
 
   }
-  addEducationFunc(){
-    if(this.state.addEdu.length==1){
+  addProjectFunc(){
+    if(this.state.addProj.length==1){
       this.setState({
-        addEdu:[1,2],
-        contHeight:900,
+        addProj:[1,2],
+        contHeight:1000,
       });
     }
-    else if(this.state.addEdu.length==2)
+    else if(this.state.addProj.length==2)
       this.setState({
-        addEdu:[1,2,3],
-        contHeight:1150,
+        addProj:[1,2,3],
+        contHeight:1200,
       })
     else {
       Alert.alert(
@@ -236,67 +254,83 @@ class Education extends Component {
             {text: '我知道了', onPress: () => {console.log('OK Pressed!')}},
           ]
         );
+      //add something
     }
   }
 
   nextPage(){
-    // var dateProps=this.state.date;
-    // for(var i=1;i<=this.state.addEdu.length;i++)
-    //   dateProps[i]=dateProps[i].toLocaleDateString();
+    // var startDateProps=this.state.startDate;
+    // var endDateProps=this.state.endDate;
+    //
+    // for(var i=1;i<=this.state.addProj.length;i++){
+    //   startDateProps[i]=startDateProps[i].toLocaleDateString();
+    //   endDateProps[i]=endDateProps[i].toLocaleDateString();
+    // }
+    //
+
 
     this.props.navigator.replace({
       title: '填写资料',
       //jump to the next page -- main pages
       // this main page is a navigator
       onLeftButtonPress: () => this.props.navigator.pop(),
-      component: Project,
-      //backButtonTitle: '基本信息',
-      // leftButtonTitle: '基本信息',
-      // onLeftButtonPress: () => this.props.navigator.pop(),
+      component: Award,
+      //backButtonTitle: '教育背景',
       //if needed,passProps be passed to component
       passProps: { username: this.props.username,
                    password:this.props.password,
                    baseInformation:this.props.baseInformation,
-                   education:[this.state.date,this.state.school,this.state.grade,this.state.professional,this.state.addEdu]},
+                   education:this.props.education,
+                   project:[this.state.startDate,this.state.endDate,this.state.pname,this.state.job,this.state.description,this.state.addProj],
+                    },
 
     });
-
-    // console.log(this.state.date);
-    // console.log(this.state.school);
-    // console.log(this.state.grade);
-    // console.log(this.state.professional);
+    // console.log(this.state.startDate);
+    // console.log(this.state.endDate);
+    // console.log(this.state.pname);
+    // console.log(this.state.description);
 
   }
 
   //change the dataArray indeed
-  onSchoolTextChanged=(order,school)=>{
-    var tempSchool=this.state.school;
-    tempSchool[order]=school;
-    this.setState({school: tempSchool});
+  onPnameTextChanged=(order,pname)=>{
+    var tempPname=this.state.pname;
+    tempPname[order]=pname;
+    this.setState({pname: tempPname});
     //this.setState({ school: event.nativeEvent.text });
   }
-  onGradeTextChanged=(order,grade)=>{
-    var tempGrade=this.state.grade;
-    tempGrade[order]=grade;
-    this.setState({grade: tempGrade});
+  onDescriptionTextChanged=(order,description)=>{
+    var tempDescription=this.state.description;
+    tempDescription[order]=description;
+    this.setState({description: tempDescription});
   }
-  onProfessionalTextChanged=(order,professional)=>{
-    var tempProfessional=this.state.professional;
-    tempProfessional[order]=professional;
-    this.setState({professional: tempProfessional});
+  onJobTextChanged=(order,job)=>{
+    var tempJob=this.state.job;
+    tempJob[order]=job;
+    this.setState({job: tempJob});
   }
   //to controll the date displayed in the Modal
   onDateChange(date) {
-      var tempDate=this.state.date;
-      tempDate[this.state.selectedOrder]=date;
-      this.setState({date: tempDate});
+
+      if(this.state.selectedModal=='start'){
+        var tempDate=this.state.startDate;
+        tempDate[this.state.selectedOrder]=date;
+        this.setState({startDate: tempDate});
+      }
+      else {
+        var tempDate=this.state.endDate;
+        tempDate[this.state.selectedOrder]=date;
+        this.setState({endDate: tempDate});
+      }
   }
 
   //to controll Visible of the dateModal
   //the bind function to EduCont component
-  setModalVisible=(visible,order)=>{
-      this.setState({ModalVisible: visible,
-                      selectedOrder:order});
+  setModalVisible=(visible,order,startOrEnd)=>{
+        this.setState({ModalVisible: visible,
+                        selectedOrder:order,
+                      selectedModal:startOrEnd});
+
   }
 
 }
@@ -453,4 +487,4 @@ var styles = StyleSheet.create({
 
   });
 
-module.exports = Education;
+module.exports = Project;
