@@ -20,16 +20,19 @@ var Education = require('./Education');
 var REQUEST_URL_RESUME ='http://182.92.11.218/shixipaiAPI/jl-ruseme-post-zxzncg-bzn';
 var BaseInformation = require('./BaseInformation');
 var Resume = require('../Resume');
+var ResumePage= require('../ResumePage');
+var MainNav = require('../MainNav');
+var resumeInformation='';
 class Expect extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      wantScope:'',
-      wantJob:'',
-      addInfo: '',
-      wantArea:'',
-      wantSalary:'',
+      wantScope:this.props.resumeInfo[0].want_scope,
+      wantJob:this.props.resumeInfo[0].want_job,
+      addInfo: this.props.resumeInfo[0].add_info,
+      wantArea:this.props.resumeInfo[0].want_area,
+      wantSalary:this.props.resumeInfo[0].want_salary,
 
       // birthdayModalVisible:false,
       // timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
@@ -170,62 +173,62 @@ class Expect extends Component {
     // console.log("award_description",this.props.award[2]);
     // console.log("addAward",this.props.award[3]);
 
-    var resumeInformation={
+    resumeInformation={
       username: this.props.username,
       password: this.props.password,
       image: "",   
     //  baseInformation:[this.state.name,this.state.sex,this.state.birthday.toLocaleDateString(),this.state.phone,this.state.mail],
       name: this.props.baseInformation[0],
       sex: this.props.baseInformation[1],
-      birthday:this.props.baseInformation[2],
+      birthday:this.props.baseInformation[2].toDateString(),
       mail: this.props.baseInformation[4],
       phone: this.props.baseInformation[3],
       //  education:[this.state.date,this.state.school,this.state.grade,this.state.professional,this.state.addEdu],
-      graduated_time_1: this.props.education[4].length>=1?this.props.education[0][1].toLocaleDateString():'',
+      graduated_time_1: this.props.education[4].length>=1?this.props.education[0][1].toDateString():'',
       school_1: this.props.education[4].length>=1?this.props.education[1][1]:'',
       grade_1: this.props.education[4].length>=1?this.props.education[2][1]:'',
       professional_1: this.props.education[4].length>=1?this.props.education[3][1]:'',
 
-      graduated_time_2: this.props.education[4].length>=2?this.props.education[0][2].toLocaleDateString():'',
+      graduated_time_2: this.props.education[4].length>=2?this.props.education[0][2].toDateString():'',
       school_2: this.props.education[4].length>=2?this.props.education[1][2]:'',
       grade_2: this.props.education[4].length>=2?this.props.education[2][2]:'',
       professional_2: this.props.education[4].length>=2?this.props.education[3][2]:'',
 
-      graduated_time_3: this.props.education[4].length>=3?this.props.education[0][3].toLocaleDateString():'',
+      graduated_time_3: this.props.education[4].length>=3?this.props.education[0][3].toDateString():'',
       school_3: this.props.education[4].length>=3?this.props.education[1][3]:'',
       grade_3: this.props.education[4].length>=3?this.props.education[2][3]:'',
       professional_3: this.props.education[4].length>=3?this.props.education[3][3]:'',
 
     //  project:[this.state.startDate,this.state.endDate,this.state.pname,this.state.job,this.state.description,this.state.addProj],
-      project_name_1:this.props.project[5].length>=1?this.props.project[2][1]:'',
-      project_start_1: this.props.project[5].length>=1?this.props.project[0][1].toLocaleDateString():'',
-      project_end_1: this.props.project[5].length>=1?this.props.project[1][1].toLocaleDateString():'',
+      project_title_1:this.props.project[5].length>=1?this.props.project[2][1]:'',
+      project_start_1: this.props.project[5].length>=1?this.props.project[0][1].toDateString():'',
+      project_end_1: this.props.project[5].length>=1?this.props.project[1][1].toDateString():'',
       project_job_1: this.props.project[5].length>=1?this.props.project[3][1]:'',
       project_info_1: this.props.project[5].length>=1?this.props.project[4][1]:'',
 
-      project_name_2:this.props.project[5].length>=2?this.props.project[2][2]:'',
-      project_start_2: this.props.project[5].length>=2?this.props.project[0][2].toLocaleDateString():'',
-      project_end_2: this.props.project[5].length>=2?this.props.project[1][2].toLocaleDateString():'',
+      project_title_2:this.props.project[5].length>=2?this.props.project[2][2]:'',
+      project_start_2: this.props.project[5].length>=2?this.props.project[0][2].toDateString():'',
+      project_end_2: this.props.project[5].length>=2?this.props.project[1][2].toDateString():'',
       project_job_2: this.props.project[5].length>=2?this.props.project[3][2]:'',
       project_info_2: this.props.project[5].length>=2?this.props.project[4][2]:'',
 
-      project_name_3:this.props.project[5].length>=3?this.props.project[2][3]:'',
-      project_start_3: this.props.project[5].length>=3?this.props.project[0][3].toLocaleDateString():'',
-      project_end_3: this.props.project[5].length>=3?this.props.project[1][3].toLocaleDateString():'',
+      project_title_3:this.props.project[5].length>=3?this.props.project[2][3]:'',
+      project_start_3: this.props.project[5].length>=3?this.props.project[0][3].toDateString():'',
+      project_end_3: this.props.project[5].length>=3?this.props.project[1][3].toDateString():'',
       project_job_3: this.props.project[5].length>=3?this.props.project[3][3]:'',
       project_info_3: this.props.project[5].length>=3?this.props.project[4][3]:'',
 
       //  award:[this.state.date,this.state.name,this.state.description,this.state.addAward],
       competition_name_1: this.props.award[3].length>=1?this.props.award[1][1]:'',
-      competition_time_1: this.props.award[3].length>=1?this.props.award[0][1].toLocaleDateString():'',
+      competition_time_1: this.props.award[3].length>=1?this.props.award[0][1].toDateString():'',
       competition_success_1:this.props.award[3].length>=1?this.props.award[2][1]:'',
 
       competition_name_2: this.props.award[3].length>=2?this.props.award[1][2]:'',
-      competition_time_2: this.props.award[3].length>=2?this.props.award[0][2].toLocaleDateString():'',
+      competition_time_2: this.props.award[3].length>=2?this.props.award[0][2].toDateString():'',
       competition_success_2:this.props.award[3].length>=2?this.props.award[2][2]:'',
 
       competition_name_3: this.props.award[3].length>=3?this.props.award[1][3]:'',
-      competition_time_3: this.props.award[3].length>=3?this.props.award[0][3].toLocaleDateString():'',
+      competition_time_3: this.props.award[3].length>=3?this.props.award[0][3].toDateString():'',
       competition_success_3:this.props.award[3].length>=3?this.props.award[2][3]:'',
 
     //console.log("expect",this.state.wantScope,this.state.wantJob,this.state.addInfo,this.state.wantArea,this.state.wantSalary,);
@@ -276,19 +279,34 @@ class Expect extends Component {
                    }
       })
     }
-    sucessPost(){
-      console.log('success');
+    jump(){
       this.props.navigator.pop();
-      // this.props.navigator.replace({
+      // this.props.navigator.push({
       //   title: '我的简历',
       //   //jump to the next page -- main pages
       //   // this main page is a navigator
-      //   component: Resume,
+      //   //onLeftButtonPress: () => this.props.navigator.pop(),
+      //   component: MainNav,
       //   //if needed,passProps be passed to component
       //   passProps: { username: this.props.username,
       //                password:this.props.password,
+      //                resumeInfo:[resumeInformation],
       //              }
       // });
+    }
+    sucessPost(){
+      this.props.updateCV(resumeInformation);
+      Alert.alert(
+          '保存成功！',
+          '',
+          [
+            {text: '好的', onPress: () => this.jump()},
+          ]
+        );
+    //  console.log('success');
+    //this.props.updateCV(resumeInformation,'resume'),
+
+
     }
   dealResponse(responseData){
     var res=responseData.result;

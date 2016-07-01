@@ -22,14 +22,14 @@ class EduCont extends Component {
     super(props);
     this.state = {
       order:this.props.order,
-      school:'',
-      professional:'',
+      school:this.props.schools,
+      professional:this.props.professionals,
       graduated_time: this.props.dates,
-      grade:'',
+      grade:this.props.grades,
       // username:this.props.username,
       // password:this.props.password,
       //graduated_timeModalVisible:false,
-      timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
+      timeZoneOffsetInHours: (-1) * (new Date(this.props.dates)).getTimezoneOffset() / 60,
 
     };
   }
@@ -59,7 +59,7 @@ class EduCont extends Component {
           <TouchableHighlight  style={styles.infoSelect}
             underlayColor='transparent'
             onPress={this.setGraduated_timeModalVisible.bind(this,true)}>
-            <Text style={styles.valueSelect}> {this.props.dates.toLocaleDateString()} </Text>
+            <Text style={styles.valueSelect}> {new Date(this.props.dates).toLocaleDateString()} </Text>
           </TouchableHighlight>
           <Image style={styles.nextImg} source={require('../img/resume/next.png')}/>
         </View>
@@ -107,16 +107,20 @@ class Education extends Component {
     this.state = {
       // name:'',
       // sex:'男',
-      school:['','','',''],
-      professional:['','','',''],
-      grade:['','','',''],
-      date: [0,new Date(),new Date(),new Date()],
+      school:['',this.props.resumeInfo[0].school_1,this.props.resumeInfo[0].school_2,this.props.resumeInfo[0].school_3],
+      professional:['',this.props.resumeInfo[0].professional_1,this.props.resumeInfo[0].professional_2,this.props.resumeInfo[0].professional_3],
+      grade:['',this.props.resumeInfo[0].grade_1,this.props.resumeInfo[0].grade_2,this.props.resumeInfo[0].grade_3],
+      date: [0,new Date(this.props.resumeInfo[0].graduated_time_1),
+              new Date(this.props.resumeInfo[0].graduated_time_2),
+              new Date(this.props.resumeInfo[0].graduated_time_3)],
 
+      //date:['',new Date(),new Date(),new Date()],
 
       ModalVisible:false,
 
       addEdu:[1],
       selectedOrder:1,
+      disableInfo:'',
       //timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
 
       //css
@@ -124,14 +128,38 @@ class Education extends Component {
     };
   }
 
+  componentWillMount(){
+    if(this.state.school[3]!=''){
+      this.setState({
+        addEdu:[1,2,3],
+        contHeight:1150,
+      });
+    }
+    else if(this.state.school[2]!='')
+      this.setState({
+        addEdu:[1,2],
+        contHeight:900,
+      });
+    else {
+      this.setState({
+        addEdu:[1],
+      });
+    }
+
+  }
 
   render(){
     var array=this.state.addEdu;
-    var visFunc=this.setModalVisible;
+
     var sendDate=this.state.date;
+    var sendSchool=this.state.school;
+    var sendProfessional=this.state.professional;
+    var sendGrade=this.state.school;
+
     var schoolFunc=this.onSchoolTextChanged;
     var gradeFunc=this.onGradeTextChanged;
     var professionalFunc=this.onProfessionalTextChanged;
+    var visFunc=this.setModalVisible;
 
     //console.log(sendDate[1]);
     return(
@@ -165,7 +193,8 @@ class Education extends Component {
 
           {array.map(function(num){
           //  console.log(this.state.date);
-            return <EduCont order={num} vis={visFunc} dates={sendDate[num]} school={schoolFunc} grade={gradeFunc} professional={professionalFunc}/>;
+            return <EduCont order={num} vis={visFunc} school={schoolFunc} grade={gradeFunc} professional={professionalFunc}
+            dates={sendDate[num]} schools={sendSchool[num]} professionals={sendProfessional[num]} grades={sendGrade[num]}/>;
           })}
 
         <View style={styles.buttonContainer}>
@@ -227,6 +256,7 @@ class Education extends Component {
       this.setState({
         addEdu:[1,2,3],
         contHeight:1150,
+        disableInfo:'最多三记录'
       })
     else {
       Alert.alert(
@@ -256,6 +286,8 @@ class Education extends Component {
       //if needed,passProps be passed to component
       passProps: { username: this.props.username,
                    password:this.props.password,
+                   resumeInfo:this.props.resumeInfo,
+                   updateCV:this.props.updateCV,
                    baseInformation:this.props.baseInformation,
                    education:[this.state.date,this.state.school,this.state.grade,this.state.professional,this.state.addEdu]},
 
