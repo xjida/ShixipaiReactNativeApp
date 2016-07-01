@@ -29,8 +29,6 @@ var Education = require('./resume/Education');
 var Project = require('./resume/Project');
 var Expect = require('./resume/Expect');
 var Award=require('./resume/Award');
-var REQUEST_URL_RESUMEINFO ='http://182.92.11.218/shixipaiAPI/zx-sh-jvie-kk-opwye-shh-j-jz';
-
 
 class MainNav extends Component {
     /**
@@ -44,90 +42,18 @@ class MainNav extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tab: 'home',
+            tab: 'resume',
             notifCount: 0,
-            modifyResume:false,
-            //from the logPage
-            resumeInfo:this.props.resumeInfo,
         };
-    }
-    updateResume=(data)=>{
-      this.setState({
-        resumeInfo:[data],
-        tab:'home'
-      });
-    }
-
-    fillResume(){
-
-        this.refs.nav.push({
-          title: '填写资料',
-          //jump to the next page -- main pages
-          // this main page is a navigator
-          component: BaseInformation,
-
-          onLeftButtonPress: () => this.props.navigator.pop(),
-          //if needed,passProps be passed to component
-          passProps: { username: this.props.username,
-                       password:this.props.password,
-                       resumeInfo:this.state.resumeInfo,
-                       updateCV:this.updateResume,
-                      },
-        });
     }
 
     select(tabName) {
         this.setState({
             tab: tabName
         });
-        //console.log(this.props.resumeInfo);
-        // if(tabName=='resume')
-        //   this.fetchData(REQUEST_URL_RESUMEINFO,{username:this.props.username,password:this.props.password});
 
     }
-
-    componentWillMount(){
-      this.fetchData(REQUEST_URL_RESUMEINFO,{username:this.props.username,password:this.props.password});
-      }
-    componentDidMount(){
-      this.fetchData(REQUEST_URL_RESUMEINFO,{username:this.props.username,password:this.props.password});
-      }
-
-    modifyResumeFalse(){
-      this.setState({
-        modifyResume:false,
-      })
-    }
-
-    fetchData(url,sendData) {
-         fetch(url, {
-           method: 'POST',
-           headers: {
-               'Accept': 'application/json',
-               'Content-Type': 'application/json',
-           },
-           body: JSON.stringify(sendData)
-         })
-         .then((response) => response.json())
-         .then((responseData) => {
-           //console.log(responseData);
-           //this.dealResponse(responseData);
-           //responseData是请求得到的数据,此处是一个json数组
-             this.setState({
-                 resumeInfo: responseData,
-             });
-
-
-
-         })
-         .done();
-
-    }
-
-
-
     render() {
-      console.log('MainNav');
         return (
           <TabBarIOS tintColor="#1aa1e5"  barTintColor="white">
           <TabBarIOS.Item
@@ -166,18 +92,13 @@ class MainNav extends Component {
                 barTintColor='#1aa1e5'
                 titleTextColor ='white'
                 tintColor='white'
-                ref="nav"
+
                 initialRoute={{
                   //change title and component here
                    title:'我的简历',
                    component:Resume,
-                   rightButtonIcon: require("./img/resume/edit.png"),
-                   onRightButtonPress:()=>this.fillResume(),
                    passProps: { username: this.props.username,
                                 password:this.props.password,
-                                resumeInfo:this.state.resumeInfo,
-                                modifyResume:this.state.modifyResume,
-                                modifyResumeFalse:this.modifyResumeFalse,
                               },
                 }}
             />

@@ -11,13 +11,11 @@ import {
     PickerIOS,
 DatePickerIOS,
     TextInput,
-    CameraRoll,
     TouchableHighlight,
     ListView  //列表控件,React的ListView会安排视图的渲染，只显示当前在屏幕上的那些元素。已经渲染好了但移动到屏幕之外的元素，会从原生视图结构中移除（很好的提高了性能）
 } from 'react-native';
 
 var Education = require('./Education');
-var Camera = require('../Camera');
 
 class ModalPicker extends Component {
   constructor(props) {
@@ -75,16 +73,15 @@ class BaseInformation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name:this.props.resumeInfo[0].name,
-      sex:this.props.resumeInfo[0].sex,
-      birthday: new Date(this.props.resumeInfo[0].birthday),
-
-      phone:this.props.resumeInfo[0].phone,
-      mail:this.props.resumeInfo[0].mail,
+      name:'',
+      sex:'男',
+      birthday: new Date(),
+      phone:'',
+      mail:'',
       sexModalVisible:false,
 
       birthdayModalVisible:false,
-      timeZoneOffsetInHours: (-1) * (new Date(this.props.resumeInfo[0].birthday)).getTimezoneOffset() / 60,
+      timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
 
 
     };
@@ -92,8 +89,6 @@ class BaseInformation extends Component {
 
 
   render(){
-
-
 
     return(
       <View style={styles.container}>
@@ -267,40 +262,7 @@ class BaseInformation extends Component {
 
   }
   uploadImg(){
-    // CameraRoll.saveImageWithTag(image).then(function (success) {
-    //         Alert.alert(
-    //             '',
-    //             '保存到相册成功',
-    //             [
-    //                 {text: '确定', onPress: () => console.log(success)}
-    //
-    //             ]
-    //         )
-    //     }, function (error) {
-    //         Alert.alert(
-    //             '',
-    //             '保存到相册失败',
-    //             [
-    //                 {text: '确定', onPress: () => console.log(error)}
-    //
-    //             ]
-    //         )
-    //     }
-    // )
-    // this.props.navigator.push({
-    //   title: '填写资料',
-    //   //jump to the next page -- main pages
-    //   // this main page is a navigator
-    //   component: Camera,
-    //   //leftButtonTitle: '简历',
-    //   onLeftButtonPress: () => this.props.navigator.pop(),
-    //   //if needed,passProps be passed to component
-    //   // passProps: { username: this.props.username,
-    //   //              password:this.props.password,
-    //   //             baseInformation:[this.state.name,this.state.sex,this.state.birthday.toLocaleDateString(),this.state.phone,this.state.mail]},
-    //
-    // });
-
+    //this.setState({gader:(<Text>1</Text>)});
   }
 
   nextPage(){
@@ -319,9 +281,7 @@ class BaseInformation extends Component {
       //if needed,passProps be passed to component
       passProps: { username: this.props.username,
                    password:this.props.password,
-                   updateCV:this.props.updateCV,
-                   resumeInfo:this.props.resumeInfo,
-                  baseInformation:[this.state.name,this.state.sex,this.state.birthday,this.state.phone,this.state.mail]},
+                  baseInformation:[this.state.name,this.state.sex,this.state.birthday.toLocaleDateString(),this.state.phone,this.state.mail]},
 
     });
 
@@ -355,7 +315,6 @@ class BaseInformation extends Component {
   }
   onDateChange(date){
     this.setState({birthday: date});
-    //this.setState({_birthday: date});
   }
 
 }

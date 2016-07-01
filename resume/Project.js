@@ -23,11 +23,11 @@ class ProjCont extends Component {
     super(props);
     this.state = {
       order:this.props.order,
-      pname:this.props.pnames,
-      description:this.props.descriptions,
+      pname:'',
+      description:'',
       start_time: this.props.stDate,
       end_time:this.props.endDates,
-      job:this.props.jobs,
+      job:'',
       // username:this.props.username,
       // password:this.props.password,
       //graduated_timeModalVisible:false,
@@ -121,17 +121,11 @@ class Project extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pname:['',this.props.resumeInfo[0].project_title_1,this.props.resumeInfo[0].project_title_2,this.props.resumeInfo[0].project_title_3],
-      description:['',this.props.resumeInfo[0].project_info_1,this.props.resumeInfo[0].project_info_2,this.props.resumeInfo[0].project_info_3],
-      startDate: [0,new Date(this.props.resumeInfo[0].project_start_1),
-                    new Date(this.props.resumeInfo[0].project_start_2),
-                    new Date(this.props.resumeInfo[0].project_start_3)],
-
-      endDate: [0,new Date(this.props.resumeInfo[0].project_end_3),
-                  new Date(this.props.resumeInfo[0].project_end_3),
-                  new Date(this.props.resumeInfo[0].project_end_3)],
-
-      job:['',this.props.resumeInfo[0].project_job_1,this.props.resumeInfo[0].project_job_2,this.props.resumeInfo[0].project_job_3],
+      pname:['','','',''],
+      description:['','','',''],
+      startDate: [0,new Date(),new Date(),new Date()],
+      endDate: [0,new Date(),new Date(),new Date()],
+      job:['','','',''],
       ModalVisible:false,
 
       addProj:[1],
@@ -143,39 +137,15 @@ class Project extends Component {
     };
   }
 
-  componentWillMount(){
-    if(this.state.pname[3]!=''){
-      this.setState({
-        addProj:[1,2,3],
-        contHeight:1200,
-      });
-    }
-    else if(this.state.pname[2]!='')
-      this.setState({
-        addProj:[1,2],
-        contHeight:1000,
-      });
-    else {
-      this.setState({
-        addProj:[1],
-      });
-    }
-
-  }
 
   render(){
     var array=this.state.addProj;
     var visFunc=this.setModalVisible;
+    var sendStDate=this.state.startDate;
+    var sendEndDate=this.state.endDate;
     var pnameFunc=this.onPnameTextChanged;
     var jobFunc=this.onJobTextChanged;
     var descriptionFunc=this.onDescriptionTextChanged;
-
-    var sendStDate=this.state.startDate;
-    var sendEndDate=this.state.endDate;
-    var sendPname=this.state.pname;
-    var sendJob=this.state.job;
-    var sendDescription=this.state.description;
-
     var datePicker=this.state.selectedModal=='start'?this.state.startDate:this.state.endDate;
   //  var professionalFunc=this.onProfessionalTextChanged;
 
@@ -212,9 +182,7 @@ class Project extends Component {
 
           {array.map(function(num){
           //  console.log(this.state.date);
-            return <ProjCont order={num} vis={visFunc}
-            stDate={sendStDate[num]} endDate={sendEndDate[num]}
-            pnames={sendPname[num]} jobs={sendJob[num]} descriptions={sendDescription[num]}
+            return <ProjCont order={num} vis={visFunc} stDate={sendStDate[num]} endDate={sendEndDate[num]}
             pname={pnameFunc} description={descriptionFunc} job={jobFunc} />;
           })}
 
@@ -311,8 +279,6 @@ class Project extends Component {
       //if needed,passProps be passed to component
       passProps: { username: this.props.username,
                    password:this.props.password,
-                   resumeInfo:this.props.resumeInfo,
-                   updateCV:this.props.updateCV,
                    baseInformation:this.props.baseInformation,
                    education:this.props.education,
                    project:[this.state.startDate,this.state.endDate,this.state.pname,this.state.job,this.state.description,this.state.addProj],

@@ -16,9 +16,6 @@ var BaseInformation = require('./resume/BaseInformation');
 var MainNav = require('./MainNav');
 class ShixipaiReactNativeApp extends Component {
     render() {
-      // var now=new Date().toDateString() ;
-      // console.log('now',now);
-      // console.log('now1',new Date(now));
         //IOS应用提供返回主界面的导航栏,android则不一样
         return (
         //<LoginRegister/>

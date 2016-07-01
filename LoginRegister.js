@@ -52,8 +52,6 @@ regiterForm()
 var MainNav = require('./MainNav');
 var REQUEST_URL_LOG = 'http://182.92.11.218/shixipaiAPI/ioha-k-u-wao/login';
 var REQUEST_URL_REGISTER = 'http://182.92.11.218/shixipaiAPI/iohaha-i-u-aha/register';
-var REQUEST_URL_RESUMEINFO ='http://182.92.11.218/shixipaiAPI/zx-sh-jvie-kk-opwye-shh-j-jz';
-
 class LoginRegister extends Component {
 
     constructor(props) {
@@ -63,7 +61,6 @@ class LoginRegister extends Component {
         username:'',
         password:'',
         secondPassword:'',
-        resumeInfo:[],
       };
     }
     renderSwitchButton(){
@@ -285,45 +282,14 @@ class LoginRegister extends Component {
           })
         })
         .then((response) => response.json())
-        .then((responseData) => {
-            this.dealResponse(responseData);
+        .then((responseData) => {  this.dealResponse(responseData)
+          ////responseData是请求得到的数据,此处是一个json数组
+            // this.setState({
+            //     information: responseData.result,
+            // });
         })
         .done();
       }
-
-      fetchResumeData(url) {
-          fetch(url, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              //username      password
-                username: this.state.username,
-                password: this.state.password,
-            })
-          })
-          .then((response) => response.json())
-          .then((responseData) => {
-            this.setState({
-              resumeInfo  : responseData,
-            });
-
-            this.props.navigator.replace({
-              name: 'View',
-              //jump to the next page -- main pages
-              // this main page is a navigator
-              component: MainNav,
-              //if needed,passProps be passed to component
-              params: { username: this.state.username,
-                           password:this.state.password,
-                         resumeInfo:this.state.resumeInfo},
-
-                });
-          })
-          .done();
-        }
 
     dealResponse(responseData){
       var res=responseData.result;
@@ -359,8 +325,16 @@ class LoginRegister extends Component {
           );
           break;
         case 'login success':
-          this.fetchResumeData(REQUEST_URL_RESUMEINFO);
-          //console.log('out of the fetch',this.state.resumeInfo);
+          this.props.navigator.replace({
+            name: 'View',
+            //jump to the next page -- main pages
+            // this main page is a navigator
+            component: MainNav,
+            //if needed,passProps be passed to component
+            params: { username: this.state.username,
+                         password:this.state.password},
+
+          });
           break;
         case 'register success':
           Alert.alert(

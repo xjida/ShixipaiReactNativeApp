@@ -22,9 +22,9 @@ class AwdCont extends Component {
     super(props);
     this.state = {
       order:this.props.order,
-      name:this.props.names,
+      name:'',
       award_time: this.props.dates,
-      description:this.props.descriptions,
+      description:'',
       // username:this.props.username,
       // password:this.props.password,
       //graduated_timeModalVisible:false,
@@ -54,7 +54,7 @@ class AwdCont extends Component {
           <TouchableHighlight  style={styles.infoSelect}
             underlayColor='transparent'
             onPress={this.setAward_timeModalVisible.bind(this,true)}>
-            <Text style={styles.valueSelect}> {new Date(this.props.dates).toLocaleDateString()} </Text>
+            <Text style={styles.valueSelect}> {this.props.dates.toLocaleDateString()} </Text>
           </TouchableHighlight>
           <Image style={styles.nextImg} source={require('../img/resume/next.png')}/>
         </View>
@@ -93,12 +93,9 @@ class Award extends Component {
     this.state = {
       // name:'',
       // sex:'男',
-      name:['',this.props.resumeInfo[0].competition_name_1,this.props.resumeInfo[0].competition_name_2,this.props.resumeInfo[0].competition_name_3],
-      description:['',this.props.resumeInfo[0].competition_success_1,this.props.resumeInfo[0].competition_success_2,this.props.resumeInfo[0].competition_success_3],
-      date: [0,new Date(this.props.resumeInfo[0].competition_time_1),
-              new Date(this.props.resumeInfo[0].competition_time_2),
-              new Date(this.props.resumeInfo[0].competition_time_3)],
-
+      name:['','','',''],
+      description:['','','',''],
+      date: [0,new Date(),new Date(),new Date()],
 
       ModalVisible:false,
 
@@ -111,37 +108,13 @@ class Award extends Component {
     };
   }
 
-  componentWillMount(){
-    if(this.state.name[3]!=''){
-      this.setState({
-        addAward:[1,2,3],
-          contHeight:1000,
-      });
-    }
-    else if(this.state.name[2]!='')
-      this.setState({
-        addAward:[1,2],
-        contHeight:800,
-      });
-    else {
-      this.setState({
-        addAward:[1],
-
-      });
-    }
-
-  }
-
 
   render(){
     var array=this.state.addAward;
     var visFunc=this.setModalVisible;
+    var sendDate=this.state.date;
     var nameFunc=this.onNameTextChanged;
     var descriptionFunc=this.onDescriptionTextChanged;
-
-    var sendDate=this.state.date;
-    var sendName=this.state.name;
-    var sendDescription=this.state.description;
     //var professionalFunc=this.onProfessionalTextChanged;
 
     //console.log(sendDate[1]);
@@ -177,8 +150,7 @@ class Award extends Component {
 
           {array.map(function(num){
           //  console.log(this.state.date);
-            return <AwdCont order={num} vis={visFunc} name={nameFunc} description={descriptionFunc}
-            dates={sendDate[num]} descriptions={sendDescription[num]} names={sendName[num]} />;
+            return <AwdCont order={num} vis={visFunc} dates={sendDate[num]} name={nameFunc} description={descriptionFunc}/>;
           })}
 
         <View style={styles.buttonContainer}>
@@ -270,8 +242,6 @@ class Award extends Component {
       //if needed,passProps be passed to component
       passProps: { username: this.props.username,
                    password:this.props.password,
-                   resumeInfo:this.props.resumeInfo,
-                   updateCV:this.props.updateCV,
                    baseInformation:this.props.baseInformation,
                    education:this.props.education,
                    project:this.props.project,
